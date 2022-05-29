@@ -160,7 +160,7 @@ int main(){
 }
 ```
 
-- toh abhi tak humne yeh dekha ki Cpp ka data corrupt hone se kaise bachae, but abhi yeh data full proof nahi hai, koi again main me jaake `b1.bookid = -100` daal de toh woh input me chala jaega, C me iss pe koi solution exist nahi karta hai, toh CPP ne access specifier use karke hum iss problem se bach sakte( by not allowing anyone toh access structure ke andar ke variable in main). Access specifier 3 type ke hote hai, public private protected. Here we are going to use private.
+- toh abhi tak humne yeh dekha ki Cpp ka data corrupt hone se kaise bachae, but abhi yeh data full proof nahi hai, koi again main me jaake `b1.bookid = -100` daal de toh woh input me chala jaega, C me iss pe koi solution exist nahi karta hai, toh CPP me access specifier use karke hum iss problem se bach sakte( by not allowing anyone to access, structure ke andar ke variable in main). Access specifier 3 type ke hote hai, public private protected. Here we are going to use private.
 
 ```cpp
 #include <iostream>
@@ -172,11 +172,11 @@ int input();
 
 struct book
 {
-    private:  //changes
+    private:  //changes, these variable can't be used or accessed outside this structure block.
     int bookid;
     char title[20];
     float price;
-    public:  //changes
+    public:  //changes, these variables(here functions) can be accessed outside this structure block.
     void input(){
         cout << "Enter book id , title and price ";
         cin >> bookid >> title >> price;
