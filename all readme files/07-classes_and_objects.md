@@ -101,3 +101,50 @@ int main(){
 
 let us say ki mai koi function class ke bahar define karna chah raha hu(for example here `void set_data`), toh normally kya problem hota hai ki woh member function nahi maaana jaaega kyuki woh bahar defined. But mai chahta hu ki woh member function maana jaae toh mujhe kuch sharte maani padegi jaise: - aapko function ko andar declare karna hoga aur - jab function ko bahar define kar rahe hai tab, function ke return type aur function ke name ke beech me membership label lagaya jaega. Toh isse yeh maana jaega ki yeh jo function hai woh bahar defined hai but uss particular class ka member hai.
 The only difference in this case is jab aap function ko andar define karte hai tab woh by default inline hota hai but jab aap bahar define karte hai tab aapko `inline` declaration keyword likhna padta hai, iske aalawa isme koi difference nahi hota hai.
+
+---
+
+#### Part 3
+
+```cpp
+#include <iostream>
+using namespace std;
+class Complex
+{
+private:
+    int a, b; //instance variable
+public:
+    void set_data(int , int);
+    void show_data(int , int){
+        cout << "\na" << a << " b" << b;
+    }
+    Complex add(Complex c){
+        Complex temp;
+        temp.a = a + c.a;
+        temp.b = b + c.b;
+        return (temp);
+    }
+};
+// defining function outside the class complex
+void Complex:: set_data(int x , int y){
+    a = x;
+    b = y;
+}
+int main(){
+    Complex c1, c2 , c3;
+    c1.set_data(3, 4);
+    c2.set_data(5, 6);
+    c3 = c1.add(c2);
+    c3.show_data();
+}
+```
+
+Instance aur object same hi baat hai.
+
+- jo variables humne class ke andar banae hai woh class variable nahi hai, unhe hum instance member variable kehte hai(instance ke variable or object ke variable).
+- c1 ke andar a aur b alag hounge , c2 ke andar a aur b alag hounge aur c3 ke andar ke alag, isliye inhe instance member variable kaha jaa raha hai, har variable ke liye alag alag.
+- isi tareeke se humne jo functions andar banae hai unhe hum instance member functions bulate hai.
+
+> State - kisi bhi object variable ki
+
+:: --> scope resolution operator
