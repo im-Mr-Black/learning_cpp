@@ -7,5 +7,5 @@ You can watch the videos, if you have any doubt in the given notes. The notes ha
 
 ## How to read notes
 
-- navigate to all ``readme files` there you can see topic name, read what you wanna read.
+- navigate to all ` readme files` there you can see topic name, read what you wanna read.
 - the code written the markdown files are saved in the `All Programs` folder.
